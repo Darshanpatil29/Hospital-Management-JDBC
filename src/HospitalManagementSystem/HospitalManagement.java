@@ -81,11 +81,13 @@ public class HospitalManagement {
     private static void handlePatientChoice(Patient patient, Scanner sc) throws Exception {
         while (true){
             System.out.println("1. Add Patient");
-            System.out.println("2. View Patient Details");
-            System.out.println("3. Check Patient");
-            System.out.println("4. Back to Main Menu");
+            System.out.println("2. View all Patient Details");
+            System.out.println("3. View Patient Details");
+            System.out.println("4. Update Patient Details");
+            System.out.println("5. Delete Patient");
+            System.out.println("6. Back to Main Menu");
             int pChoice = sc.nextInt();
-            if (pChoice == 4) {
+            if (pChoice == 6) {
                 break;
             }
             switch (pChoice) {
@@ -98,7 +100,17 @@ public class HospitalManagement {
                 case 3:
                     System.out.println("Enter ID of Patient:");
                     int id = sc.nextInt();
-                    patient.checkPatient(id);
+                    patient.viewPatient(id);
+                    break;
+                case 4:
+                    System.out.println("Enter ID of Patient:");
+                    int pid = sc.nextInt();
+                    patient.updatePatient(pid);
+                    break;
+                case 5:
+                    System.out.println("Enter ID of Patient:");
+                    int pid1 = sc.nextInt();
+                    patient.deletePatient(pid1);
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
